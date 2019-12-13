@@ -1,4 +1,4 @@
-const users = [];
+const users = [{ id: 1, email: 'john.smith@example.com', password: null, salt: null }];
 let id = 1;
 
 class User {
