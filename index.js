@@ -8,7 +8,7 @@ const app = express();
 app.use(express.urlencoded());
 app.use(express.json());
 
-app.get('/api/v1/users', async (req, res) => {
+app.get('/api/v1/users', auth.isAuthenticated, async (req, res) => {
   const users = await User.findAll();
   res.send(users);
 });

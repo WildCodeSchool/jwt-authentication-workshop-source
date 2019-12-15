@@ -1,6 +1,7 @@
 const argon2 = require('argon2');
 const randomBytes = require('randombytes');
 const jwt = require('jsonwebtoken');
+const expressJWT = require('express-jwt');
 const User = require('./models/User');
 
 const secret = process.env.JWT_SECRET;
@@ -41,8 +42,13 @@ const authenticate = async ({ email, password }) => {
   }
 }
 
+const isAuthenticated = expressJWT({
+  secret, // Same secret as when we signed
+});
+
 module.exports = {
   register,
   authenticate,
+  isAuthenticated,
 }
 
