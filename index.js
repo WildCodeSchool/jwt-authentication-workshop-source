@@ -1,3 +1,4 @@
+require('dotenv').config();
 const express = require('express');
 const User = require('./models/User');
 const auth = require('./authentication');
@@ -16,6 +17,16 @@ app.post('/api/v1/users', async (req, res) => {
   const { email, password } = req.body;
   const user = await auth.register({ email, password });
   res.send(user);
+});
+
+app.post('/api/v1/login', async (req, res) => {
+  const { email, password } = req.body;
+  try {
+    const { token } = await auth.authenticate({ email, password });
+    res.send({ token });
+  } catch (err) {
+    res.status(401).send();
+  }
 });
 
 app.listen(3002, () => {
