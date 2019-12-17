@@ -1,5 +1,5 @@
 const users = [{ id: 1, email: 'john.smith@example.com', password: null, salt: null }];
-let id = 1;
+let id = 2;
 
 class User {
   static async create(user) {
