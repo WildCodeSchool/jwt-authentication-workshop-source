@@ -1,3 +1,9 @@
+/*
+  /!\ WARNING /!\
+  DO NOT MODIFY THIS FILE
+  /!\ WARNING /!\
+*/
+
 const users = [{ id: 1, email: 'john.smith@example.com', password: null }];
 let id = 2;
 
